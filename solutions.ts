@@ -6,9 +6,6 @@ function multiplyValue(value: number, multiplier?: number): number {
 
   return value * multiplier;
 }
-console.log(multiplyValue(10));
-console.log(multiplyValue(10, 5));
-console.log(multiplyValue(7, 0));
 
 
 //* problem 2
@@ -27,11 +24,6 @@ function processInput(value: string | number | boolean): string | number {
 
   return value;
 }
-console.log(processInput('  TypeScript  '));
-console.log(processInput(7));
-console.log(processInput(true));
-console.log(processInput(false));
-
 
 
 //* problem 3
@@ -42,8 +34,6 @@ function formatCoordinate(
 
   return `Location: ${locationName} (${latitude}, ${longitude})`;
 }
-console.log(formatCoordinate([23.81, 90.41, 'Dhaka']));
-console.log(formatCoordinate([22.35, 91.78, 'Chittagong']));
 
 
 
@@ -51,9 +41,6 @@ console.log(formatCoordinate([22.35, 91.78, 'Chittagong']));
 function concatenateArrays<T>(...arrays: T[][]): T[] {
   return arrays.flat();
 }
-
-console.log(concatenateArrays(['a', 'b'], ['c', 'd']));
-console.log(concatenateArrays([1, 2], [3, 4], [5]));
 
 
 
@@ -64,28 +51,16 @@ interface Course {
   isPublished: boolean;
 }
 
-const courses: Course[] = [
-  { title: 'TypeScript Mastery', students: 120, isPublished: true },
-  { title: 'Draft Course', students: 200, isPublished: false },
-  { title: 'Basic HTML', students: 45, isPublished: true },
-  { title: 'Next.js Pro', students: 85, isPublished: true },
-];
 
 function getPopularCourses(courses: Course[], minStudents: number): Course[] {
   return courses.filter(
     course => course.isPublished === true && course.students >= minStudents,
   );
 }
-console.log(getPopularCourses(courses, 80));
 
 
 
 //* problem 6
-const users = [
-  { id: 1, name: 'Rakib', role: 'Admin' },
-  { id: 2, name: 'Sadia', role: 'Editor' },
-  { id: 3, name: 'Tariq', role: 'Subscriber' },
-];
 
 //? keyof T is a TypeScript utility type that represents the keys of a given type T. It allows you to create a type that consists of the property names (keys) of an object type. When you use keyof T, you get a union type of all the keys in the object type T.
 
@@ -93,10 +68,6 @@ const users = [
 function pluckValues<T, K extends keyof T>(items: T[], key: K): T[K][] {
   return items.map(item => item[key]);
 }
-
-console.log(pluckValues(users, 'name'));
-console.log(pluckValues(users, 'id'));
-console.log(pluckValues(users, 'role'));
 
 
 
@@ -132,9 +103,6 @@ class Manager extends Employee {
 }
 
 const manager = new Manager('Alice', 50000, 'Engineering');
-console.log(manager.getDetails());
-console.log(manager.getRoleInfo());
-
 
 
 //* problem 8
@@ -149,6 +117,3 @@ const validateAgeAsync = async (age: number): Promise<string> => {
     }
   });
 };
-
-validateAgeAsync(20).then(console.log);
-validateAgeAsync(15).catch((error: Error) => console.log(error.message));
